@@ -1,6 +1,7 @@
-local terminal = "footclient"
+local terminal = "rio"
 local fileManager = "thunar"
 local menu = "wofi --show drun"
+local browser = "chromium"
 
 local mainMod = "SUPER"
 
@@ -8,10 +9,11 @@ hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("firefox"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("brave-origin"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("Telegram"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("obsidian"))
 
 -- Take screenshots using Grim and copy them to Clipboard
 hl.bind(

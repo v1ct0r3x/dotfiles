@@ -9,6 +9,7 @@ vim.opt.breakindent = true
 
 -- Use nerd font
 vim.g.have_nerd_font = true
+vim.opt.guifont = "JetBrainsMono Nerd Font:h11"
 
 -- Show line numbers and use relative line numbers
 vim.opt.number = true

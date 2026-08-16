@@ -16,6 +16,11 @@ return {
 				cpp = { "clang_format" },
 				lua = { "stylua" },
 			},
+			formatters = {
+				clang_format = {
+					prepend_args = { "-style={SpacesBeforeTrailingComments: 2}" },
+				},
+			},
 			format_on_save = {
 				timeout_ms = 500,
 				lsp_format = "fallback",
