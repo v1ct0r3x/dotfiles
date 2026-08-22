@@ -1,0 +1,72 @@
+@import url(chrome/auto_devtools_theme_for_rdm.css);
+@import url(chrome/autohide_bookmarks_and_main_toolbars.css);
+@import url(chrome/button_effect_icon_glow.css);
+@import url(chrome/button_effect_scale_onclick.css);
+@import url(chrome/button_effect_scale_onhover.css);
+@import url(chrome/buttonlike_toolbarbuttons.css);
+@import url(chrome/color_variable_template.css);
+@import url(chrome/compact_urlbar_megabar.css);
+@import url(chrome/floating_findbar_on_top.css);
+@import url(chrome/hide_vert_new_tab_button.css);
+@import url(chrome/integrated_searchbar_popup.css);
+@import url(chrome/numbered_tabs.css);
+@import url(chrome/round_ui_items.css);
+@import url(chrome/rounded_menupopups.css);
+
+/* --- Unify all tab backgrounds (including pinned tabs) --- */
+.tabbrowser-tab .tab-background,
+.tabbrowser-tab[pinned] .tab-background {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Hover state for tabs */
+.tabbrowser-tab:hover .tab-background {
+  background-color: #313244 !important; /* surface0 */
+}
+
+/* Selected/Active state for tabs (Updated for modern Firefox) */
+#tabbrowser-tabs .tabbrowser-tab[selected] > .tab-stack > .tab-background,
+#tabbrowser-tabs
+  .tabbrowser-tab[visuallyselected]
+  > .tab-stack
+  > .tab-background {
+  background-color: #45475a !important; /* surface1 */
+}
+/* --- Enhanced URL Bar --- */
+#urlbar-background {
+  background-color: #181825 !important; /* mantle - slightly darker for contrast */
+  border: 1px solid #313244 !important; /* surface0 */
+  border-radius: 8px !important;
+}
+
+/* Add a Mocha Lavender glow when clicking the URL bar */
+#urlbar[focused="true"] > #urlbar-background {
+  border-color: #b4befe !important;
+  box-shadow: 0 0 0 1px #b4befe !important;
+}
+
+/* URL bar text color */
+#urlbar-input {
+  color: #cdd6f4 !important; /* text */
+}
+
+/* --- Enhanced Bookmarks Toolbar --- */
+#PersonalToolbar {
+  background-color: #1e1e2e !important; /* base */
+  color: #bac2de !important; /* subtext1 */
+  padding: 2px 4px !important;
+}
+
+/* Individual bookmark styling */
+toolbarbutton.bookmark-item {
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+}
+
+/* Bookmark hover effect */
+toolbarbutton.bookmark-item:hover {
+  background-color: #313244 !important; /* surface0 */
+  color: #cdd6f4 !important; /* brighter text on hover */
+}

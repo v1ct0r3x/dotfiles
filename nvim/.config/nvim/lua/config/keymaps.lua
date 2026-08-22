@@ -13,11 +13,15 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- Exit terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
--- Navigate bufferes
+-- Navigate buffers
 vim.keymap.set("n", "<leader>bn", ":bn<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bp", ":bp<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bl", ":bl<CR>", { desc = "Last buffer" })
 vim.keymap.set("n", "<leader>bf", ":bf<CR>", { desc = "First buffer" })
+vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Close buffer" })
+vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Delete buffer" })
+vim.keymap.set("n", "<leader>bc", ":close<CR>", { desc = "Close buffer/window" })
+vim.keymap.set("n", "<leader>bw", ":bw<CR>", { desc = "Wipeout buffer completely" })
 
 --  Use CTRL+<hjkl> to switch between windows
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })

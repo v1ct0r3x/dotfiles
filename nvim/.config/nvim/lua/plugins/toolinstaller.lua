@@ -35,6 +35,9 @@ return {
 				"luacheck",
 
 				"cpplint",
+
+				"markdownlint-cli2",
+				"markdown-toc",
 			},
 		},
 	},

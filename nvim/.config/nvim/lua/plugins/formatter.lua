@@ -15,6 +15,7 @@ return {
 				c = { "clang_format" },
 				cpp = { "clang_format" },
 				lua = { "stylua" },
+				markdown = { "prettier", "markdownlint-cli2", "markdown-toc" },
 			},
 			formatters = {
 				clang_format = {

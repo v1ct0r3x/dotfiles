@@ -1,7 +1,7 @@
 local terminal = "rio"
 local fileManager = "thunar"
 local menu = "wofi --show drun"
-local browser = "chromium"
+local browser = "brave-origin"
 
 local mainMod = "SUPER"
 
