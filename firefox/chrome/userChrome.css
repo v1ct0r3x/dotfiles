@@ -9,7 +9,6 @@
 @import url(chrome/floating_findbar_on_top.css);
 @import url(chrome/hide_vert_new_tab_button.css);
 @import url(chrome/integrated_searchbar_popup.css);
-@import url(chrome/numbered_tabs.css);
 @import url(chrome/round_ui_items.css);
 @import url(chrome/rounded_menupopups.css);
 
@@ -69,4 +68,34 @@ toolbarbutton.bookmark-item {
 toolbarbutton.bookmark-item:hover {
   background-color: #313244 !important; /* surface0 */
   color: #cdd6f4 !important; /* brighter text on hover */
+}
+
+/* --- Floating Sidebar --- */
+#browser {
+  position: relative !important;
+}
+
+sidebar-main {
+  position: absolute !important;
+  z-index: 10 !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  box-shadow: 4px 0 15px rgba(17, 17, 27, 0.7) !important;
+  max-width: 300px !important;
+  min-width: 300px !important;
+  width: 300px !important;
+  contain: layout !important;
+}
+
+/* Prevent the browser content area from reserving space for the sidebar */
+#tabbrowser-tabbox,
+#appcontent {
+  margin-left: 0 !important;
+}
+
+/* Hide the draggable splitter line since the sidebar is floating */
+#sidebar-splitter,
+#sidebar-panel-splitter {
+  display: none !important;
 }

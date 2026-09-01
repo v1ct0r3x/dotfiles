@@ -20,6 +20,8 @@ return {
 
 				"lua_ls",
 
+				"qmlls",
+
 				-- Formatters
 				-- "ruff",
 				"prettier",
