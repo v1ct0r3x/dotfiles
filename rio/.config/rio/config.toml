@@ -1,0 +1,15 @@
+theme = "catppuccin-mocha"
+confirm-before-quit = false
+copy-on-select = true
+
+[window]
+decorations = "transparent"
+opacity = 0.9
+blur = true
+
+[navigation]
+mode = "Plain"
+
+[fonts.regular]
+family = "JetBrainsMono Nerd Font"
+features = ["liga", "calt"]

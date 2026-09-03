@@ -1,12 +1,3 @@
-//
-/* You may copy+paste this file and use it as it is.
- *
- * If you make changes to your about:config while the program is running, the
- * changes will be overwritten by the user.js when the application restarts.
- *
- * To make lasting changes to preferences, you will have to edit the user.js.
- */
-
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
@@ -354,6 +345,13 @@ user_pref("network.predictor.enabled", false);
 
 // PREF: Increase Skia font cache to prevent re-rendering terminal/custom fonts on heavy pages
 user_pref("gfx.content.skia-font-cache-size", 80);
+
+// PREF: Disable widgets
+user_pref("browser.newtabpage.activity-stream.widgets.enabled", false);
+
+// PREF: Use vertical tabs
+user_pref("sidebar.verticalTabs", true);
+user_pref("sidebar.verticalTabs.dragToPinPromo.dismissed", true);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *

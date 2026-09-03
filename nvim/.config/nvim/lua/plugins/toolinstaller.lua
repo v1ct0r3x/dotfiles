@@ -8,17 +8,17 @@ return {
 				"pyright",
 				"ruff",
 
-				"ts_ls",
-				"html",
-				"cssls",
-				"tailwindcss",
-				"emmet_ls",
-				"eslint",
-				"jsonls",
+				"typescript-language-server",
+				"html-lsp",
+				"css-lsp",
+				"tailwindcss-language-server",
+				"emmet-ls",
+				"eslint-lsp",
+				"json-lsp",
 
 				"clangd",
 
-				"lua_ls",
+				"lua-language-server",
 
 				"qmlls",
 

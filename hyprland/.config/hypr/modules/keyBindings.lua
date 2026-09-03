@@ -1,7 +1,7 @@
 local terminal = "rio"
 local fileManager = "thunar"
 local menu = "wofi --show drun"
-local browser = "brave-origin"
+local browser = "firefox"
 
 local mainMod = "SUPER"
 
@@ -45,7 +45,10 @@ hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("sudo tlp bat && notify-send 
 -- Close window
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 
--- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(
+	mainMod .. " + M",
+	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+)
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
