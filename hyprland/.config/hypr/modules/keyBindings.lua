@@ -1,5 +1,5 @@
 local terminal = "rio"
-local fileManager = "thunar"
+local fileManager = "nautilus"
 local menu = "wofi --show drun"
 local browser = "firefox"
 
