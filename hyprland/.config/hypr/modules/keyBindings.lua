@@ -8,12 +8,23 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("firefox"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("Telegram"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("obsidian"))
+
+-- Close window
+hl.bind(mainMod .. " + C", hl.dsp.window.close())
+
+-- Toggle full screen
+hl.bind("SUPER + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+
+-- Access Clipboard History
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("cliphist list | wofi --dmenu | cliphist decode | wl-copy"))
+
+-- Toggle Ashell
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("ashell msg toggle-visibility"))
 
 -- Take screenshots using Grim and copy them to Clipboard
 hl.bind(
@@ -21,7 +32,7 @@ hl.bind(
 	hl.dsp.exec_cmd(
 		"mkdir -p ~/Pictures/Screenshots && "
 			.. 'grim - | tee ~/Pictures/Screenshots/$(date +"%Y-%m-%d_%H-%M-%S").png | wl-copy && '
-			.. 'notify-send "Screenshot Saved and Copied"'
+			.. 'notify-send "Screenshot Saved and Copied To Clipboard"'
 	)
 )
 hl.bind(
@@ -29,7 +40,7 @@ hl.bind(
 	hl.dsp.exec_cmd(
 		"mkdir -p ~/Pictures/Screenshots && "
 			.. 'grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/$(date +"%Y-%m-%d_%H-%M-%S").png | wl-copy && '
-			.. 'notify-send "Screenshot Saved and Copied"'
+			.. 'notify-send "Screenshot Saved and Copied To Clipboard"'
 	)
 )
 -- Change wallpaper using awww
@@ -42,13 +53,10 @@ hl.bind(
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("sudo tlp ac && notify-send 'TLP' 'Performance mode activated'"))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("sudo tlp bat && notify-send 'TLP' 'Power saver mode activated'"))
 
--- Close window
-hl.bind(mainMod .. " + C", hl.dsp.window.close())
-
-hl.bind(
-	mainMod .. " + M",
-	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
-)
+-- hl.bind(
+-- 	mainMod .. " + M",
+-- 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+-- )
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
@@ -80,32 +88,45 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind(mainMod .. " + R", hl.dsp.window.resize(), { mouse = true })
 
+-- Audio Controls
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("ashell msg volume-up"))
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("ashell msg volume-down"))
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("ashell msg volume-toggle-mute"))
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("ashell msg microphone-toggle-mute"))
+
+-- Brightness Controls
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("ashell msg brightness-up"))
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("ashell msg brightness-down"))
+
+-- Airplane mode toggle
+hl.bind("XF86WLAN", hl.dsp.exec_cmd("ashell msg toggle-airplane-mode"))
+
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind(
-	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-	{ locked = true, repeating = true }
-)
-hl.bind(
-	"XF86AudioLowerVolume",
-	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-	{ locked = true, repeating = true }
-)
-hl.bind(
-	"XF86AudioMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-	{ locked = true, repeating = true }
-)
-hl.bind(
-	"XF86AudioMicMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-	{ locked = true, repeating = true }
-)
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+-- hl.bind(
+-- 	"XF86AudioRaiseVolume",
+-- 	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+-- 	{ locked = true, repeating = true }
+-- )
+-- hl.bind(
+-- 	"XF86AudioLowerVolume",
+-- 	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+-- 	{ locked = true, repeating = true }
+-- )
+-- hl.bind(
+-- 	"XF86AudioMute",
+-- 	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+-- 	{ locked = true, repeating = true }
+-- )
+-- hl.bind(
+-- 	"XF86AudioMicMute",
+-- 	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+-- 	{ locked = true, repeating = true }
+-- )
+-- hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
+-- hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 
 -- Requires playerctl
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+-- hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+-- hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+-- hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+-- hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
