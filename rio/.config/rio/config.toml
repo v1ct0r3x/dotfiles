@@ -11,5 +11,5 @@ blur = true
 mode = "Plain"
 
 [fonts.regular]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMono Nerd Font Propo"
 features = ["liga", "calt"]
