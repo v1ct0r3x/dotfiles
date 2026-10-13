@@ -8,7 +8,12 @@ return {
 		end,
 
 		opts = {
-			keymap = { preset = "super-tab" },
+			-- keymap = { preset = "super-tab" },
+			keymap = {
+				preset = "super-tab",
+				["<Tab>"] = { "snippet_forward", "select_and_accept", "fallback" },
+				["<S-Tab>"] = { "snippet_backward", "fallback" },
+			},
 			completion = { documentation = { auto_show = true } },
 			sources = { default = { "lsp", "path", "snippets", "buffer" } },
 			fuzzy = { implementation = "lua" },

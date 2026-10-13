@@ -2,6 +2,7 @@
 | -------------------------------- | -------------------------------- |
 | OS                               | Arch Linux                       |
 | Window Manager                   | Hyprland                         |
+| Display Manager                  | None                             |
 | Bar                              | Ashell                           |
 | Terminal                         | Kitty + Starship                 |
 | Shell                            | zsh + Bash                       |
