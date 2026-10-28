@@ -10,3 +10,6 @@ require("modules.misc")
 require("modules.input")
 require("modules.windowAndWorkspaces")
 
+-- HyprEmoji config
+package.path = package.path .. ";" .. os.getenv("HOME") .. "/.config/hypremoji/?.lua"
+require("hypremoji")

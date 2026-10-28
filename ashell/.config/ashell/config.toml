@@ -5,8 +5,10 @@ enable_esc_key = true
 
 [modules]
 left = [ "Workspaces" ]
-center = [ "WindowTitle" ]
-right = ["MediaPlayer", "Tray", [ "Tempo", "Privacy", "Settings" ], "Notifications", "Clipboard"]
+# center = [ "WindowTitle" ]
+center = [ "Tempo" ]
+# right = ["MediaPlayer", "Tray", [ "Privacy", "Settings" ], "Notifications", "Clipboard"]
+right = ["MediaPlayer", "Tray", [ "Privacy", "Settings" ], "Notifications"]
 
 [[CustomModule]]
 name = "Clipboard"
@@ -64,7 +66,7 @@ enabled = true
 style = "Islands"
 font_name = "JetBrainsMono Nerd Font Propo"
 scale_factor = 0.7           # (default) range: 0.0 < x <= 2.0
-opacity = 0.6                # (default) range: 0.0 to 1.0
+opacity = 0.8                # (default) range: 0.0 to 1.0
 
 success_color = "#a6e3a1"
 warning_color = "#f9e2af"

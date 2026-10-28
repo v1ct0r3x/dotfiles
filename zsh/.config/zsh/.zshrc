@@ -15,8 +15,8 @@
 # =========================================================
 
 HISTFILE="$XDG_STATE_HOME/zsh/history"
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=1000
+SAVEHIST=1000
 
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
